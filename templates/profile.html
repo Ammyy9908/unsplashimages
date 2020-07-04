@@ -1,0 +1,66 @@
+{%extends 'main.html'%}
+{%block title%}Your Profile{%endblock%}
+{%block nav%}
+ <!-- START NAV -->
+ <nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="../">
+            <strong>Unsplash</strong>
+        </a>
+        <span class="navbar-burger burger" data-target="navbarMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+
+         
+         {%if uname%}
+
+        <a class="navbar-item is-size-5 has-text-weight-semibold has-text-primary" href="/logout">
+          Logout
+        </a>
+
+        {%endif%}
+          
+        </div>
+      </div>
+      
+    </div>
+  </nav>
+  <!-- END NAV -->
+{%endblock%}
+{%block body%}
+<sectio class="hero">
+    <div class="hero-body">
+        <div class="columns">
+            <div class="column">
+                <h1 class="title is-size-1">{{uname}}</h1>
+                <p class="subtitle is-size-3">Total uploads {{count}}</p>
+                
+            </div>
+        </div>
+    </div>
+</sectio>
+<!--flex gallery-->
+<div class="grid">
+   {%for i in data %}
+   <div class="flexbox-item">
+    <img src="{{i.img_url}}" alt="">
+    </div>
+   {%endfor%}
+    
+</div>
+
+<!--footer-->
+<footer class="footer is-dark">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Unsplash - HD Free Images</strong> by <a href="https://gonzalojs.com">Sumit Kumar</a>
+      </p>
+    </div>
+  </footer>
+{%endblock%}

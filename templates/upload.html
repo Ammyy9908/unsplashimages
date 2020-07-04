@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <optionnk rel="stylesheet" href="https://cdn.jsdeoptionvr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <title>upload</title>
+</head>
+<body>
+    {%extends 'main.html'%}
+    {%block nav%}
+    <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="../">
+                <strong>Unsplash Upload</strong>
+            </a>
+            <span class="navbar-burger burger" data-target="navbarMenu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-end">
+    
+              <a class="navbar-item is-size-5 has-text-weight-semibold has-text-optionnk" href="/logout">
+                Logout
+              </a>
+             
+              
+            </div>
+          </div>
+          
+        </div>
+      </nav>
+    {%endblock%}
+    {%block body%}
+    <sectio class="hero">
+        <div class="hero-body">
+            <div class="columns">
+                <div class="column">
+                    <!-- <figure class="image is-128x128">
+                        <img class="is-rounded" src="https://avatars.dicebear.com/api/avataaars/Sumit%20Kumar.svg">
+                      </figure> -->
+                    <h1 class="title is-size-1">{{uname}}</h1>
+                    <form action="/upload" method="POST">
+                        <div class="select">
+                            <select onchange="renderImage();" name="type">
+                               {%for i in options%}
+                               <option value='{{i["name"]}}'>{{i["name"]}}</option>
+                               {%endfor%}
+                            </select>
+
+                          </div>
+                          <br><br>
+                          <div class="field">
+                            <div class="control">
+                              <input class="input imgUrl" type="hidden" placeholder="image url" style="max-width: 350px;" readonly name="imgUrl">
+                            </div>
+                          </div>
+
+                          <div class="field">
+                            <div class="control">
+                              <input class="input" type="hidden" value="{{uname}}" style="max-width: 350px;" readonly name="uname">
+                            </div>
+                          </div>
+
+                          <div class="field">
+                            <div class="control">
+                              <input class="button is-primary is-medium uploadBtn" type="submit" value="upload" style="visibility: hidden;">
+                            </div>
+                          </div>
+                          <div class="field">
+                            <div class="control">
+                              <input class="button is-primary is-medium nextBtn" type="button" value="Next Image" style="visibility: hidden;">
+                            </div>
+                          </div>
+                    </form>
+                </div>
+                <div class="column is-256x256">
+             <img src="https://source.unsplash.com/200x300/?grass" alt="preview_not_rendered" class="image is-rounded">
+                </div>
+            </div>
+        </div>
+    </sectio>
+    <script>
+        let select = document.querySelector('select');
+        function renderImage()
+        {
+            let base = 'https://source.unsplash.com/4000x6000/?';
+            let full_url = base+select.value;
+            fetch(full_url).then((response)=>{
+                //alert(response.url);
+                document.querySelector('.imgUrl').value=response.url;
+                document.querySelector('img').setAttribute('src',response.url);
+                document.querySelector('img').style.width = "200px";
+                document.querySelector('img').style.height = "300px";
+                document.querySelector('.uploadBtn').style.visibility = 'visible';
+                document.querySelector('.nextBtn').style.visibility = 'visible';
+            }).catch(error=>{
+                alert(error);
+            })
+        }
+
+    
+
+        document.querySelector('.nextBtn').addEventListener('click',()=>{
+            let base = 'https://source.unsplash.com/4000x6000/?';
+            let full_url = base+select.value;
+            fetch(full_url).then((response)=>{
+                //alert(response.url);
+                document.querySelector('.imgUrl').value=response.url;
+                document.querySelector('img').setAttribute('src',response.url);
+                document.querySelector('img').style.width = "200px";
+                document.querySelector('img').style.height = "300px";
+            }).catch(error=>{
+                alert(error);
+            })
+        })
+    </script>
+    {%endblock%}
+
+   
+</body>
+</html>

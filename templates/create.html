@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" href="../static/neumorphic-login.css">
+    <title>Unsplash-Login</title>
+</head>
+<body>
+    <section class="hero is-fullheight">
+        <div class="hero-body has-text-centered">
+          <div class="login">
+              <p class="subtitle has-text-danger">{{error}}</p>
+              <h1 class="title is-size-2">Join for Free</h1>
+            <form action="/join" method="POST">
+                <div class="field">
+                    <div class="control">
+                      <input class="input is-medium is-rounded" type="text" placeholder="Username" autocomplete="off" required name="uname" />
+                    </div>
+                  </div>
+
+              <div class="field">
+                <div class="control">
+                  <input class="input is-medium is-rounded" type="email" placeholder="Email" autocomplete="off" name="email" required />
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <input class="input is-medium is-rounded" type="password" placeholder="Create Password" autocomplete="current-password" name='pass1' required />
+                </div>
+              </div>
+
+              <div class="field">
+                <div class="control">
+                  <input class="input is-medium is-rounded" type="password" placeholder="Confirm Password" autocomplete="current-password" name="pass2" required />
+                </div>
+              </div>
+              <br />
+              <button class="button is-block is-fullwidth is-primary is-medium is-rounded" type="submit">
+                Create Account
+              </button>
+            </form>
+            <br>
+            <a href="/login" class="has-text-primary">Login</a>
+          </div>
+        </div>
+      </section>
+</body>
+</html>

@@ -1,0 +1,107 @@
+{%extends 'main.html'%}
+{%block title%}Unsplash{%endblock%}
+{%block nav%}
+   <!-- START NAV -->
+   <nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="../">
+            <strong>Unsplash</strong>
+        </a>
+        <span class="navbar-burger burger" data-target="navbarMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+  
+         
+         {%if uname%}
+         <a class="navbar-item is-size-5 has-text-weight-semibold has-text-link" href="/upload">
+          Upload
+        </a>
+         <a class="navbar-item is-size-5 has-text-weight-semibold" href="/profile">
+          {{uname}}
+        </a>
+  
+        <a class="navbar-item is-size-5 has-text-weight-semibold has-text-primary" href="/logout">
+          Logout
+        </a>
+        {%else%}
+        <a class="navbar-item is-size-5 has-text-weight-semibold" href="/login">
+          Login
+        </a>
+  
+        <a class="navbar-item is-size-5 has-text-weight-semibold has-text-primary" href="/join">
+          Join for free
+        </a>
+        {%endif%}
+          
+        </div>
+      </div>
+      
+    </div>
+  </nav>
+  
+  <!-- END NAV -->
+{%endblock%}
+{%block body%}
+<div class="hero is-medium homeHeader is-dark">
+
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <h1 class="title is-size-1 has-text-white has-text-centered">Unsplash</h1>
+                    <p class="subtitle has-text-white has-text-centered">The internet’s source of freely-usable images.
+                        Powered by creators everywhere.</p>
+                        
+                        
+                            <div class="field" style="margin: 50px auto;">
+
+                                <center>
+                                <form class="control">
+                                 <input class="input is-large" type="text" placeholder="Search Free High Resolution Images" id="search"">
+                                 
+                                
+                                </form>
+                            </center>
+                              </div>
+                               
+                           
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tabs" style="border: none;">
+  <ul>
+   
+   
+   {%for i in category%}
+   <li><a href='/{{i["name"]}}'>{{i["name"]}}</a></li>
+   {%endfor%}
+   <li><a href="/all">All</a></li>
+  </ul>
+</div>
+<!--flex gallery-->
+<div class="grid">
+   {%for i in data %}
+   <div class="flexbox-item">
+    <a href='/view/viewid={{i.id}}'><img src="{{i.img_url}}" alt=""></a>
+    </div>
+   {%endfor%}
+    
+</div>
+
+<!--footer-->
+<footer class="footer is-dark">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Unsplash - HD Free Images</strong> by <a href="https://gonzalojs.com">Sumit Kumar</a>
+      </p>
+    </div>
+  </footer>
+{%endblock%}

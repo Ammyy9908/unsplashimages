@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <link rel="stylesheet" href="../static/neumorphic-login.css">
+    <title>Unsplash-Login</title>
+</head>
+<body>
+    <section class="hero is-fullheight">
+        <div class="hero-body has-text-centered">
+          <div class="login">
+              {%if error%}
+              <p class="has-text-danger">{{error}}</p>
+              {%else%}
+              <p class="has-text-success">{{message}}</p>
+              {%endif%}
+              <h1 class="title is-size-2">Welcome back!</h1>
+            <form action="/login" method="POST">
+              <div class="field">
+                <div class="control">
+                  <input class="input is-medium is-rounded" type="email" placeholder="Email" autocomplete="username" name="uemail" />
+                </div>
+              </div>
+              <div class="field">
+                <div class="control">
+                  <input class="input is-medium is-rounded" type="password" placeholder="Password" autocomplete="current-password" name="password" />
+                </div>
+              </div>
+              <br />
+              <button class="button is-block is-fullwidth is-primary is-medium is-rounded" type="submit">
+                Login
+              </button>
+            </form>
+            <br>
+            <a href="/forget" class="has-text-danger">Forget Password?</a><br>
+            <a href="/join" class="has-text-primary">Join For Free</a>
+
+          </div>
+        </div>
+      </section>
+</body>
+</html>

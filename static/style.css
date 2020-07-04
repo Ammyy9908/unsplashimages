@@ -1,0 +1,77 @@
+
+* {
+    font-family: 'Nunito Sans', sans-serif;
+  }
+  
+  :root {
+    --shadowDark: #D9DDE6;
+    --background: #E4E9F2;
+    --shadowLight: #EFF5FE;
+  }
+  .hero-body {
+    justify-content: center;
+  }
+  
+  .login {
+    border-radius: 25px;
+    padding: 1.5rem;
+    box-shadow: 8px 8px 15px var(--shadowDark), -8px -8px 15px var(--shadowLight);
+  }
+  
+  input {
+    background: var(--shadowDark) !important;
+  }
+  
+  a {
+    font-weight: 600;
+  }
+ nav.navbar {
+    height: 4rem !important;
+  }
+.homeHeader
+{
+    background-image: url(https://source.unsplash.com/1080x768/?dark);
+    background-size: cover;
+    
+}
+
+#search{
+    max-width: 650px;
+}
+
+.grid
+       {
+           display: flex;
+           flex-flow: row wrap;
+           justify-content: center;
+       }
+       .flexbox-item 
+       {
+            flex-basis: 100%;
+            margin: 10px;
+       }
+
+       .flexbox-item img{
+           width: 100%;
+           border-radius: 2px;
+       }
+       @media only  screen and (min-width:762px) {
+
+        .flexbox-item 
+       {
+            flex-basis: 300px;
+            margin: 10px;
+       }
+           
+       }
+
+
+       .footer
+       {
+           background-color: #cccccc;
+           color: #ffffff;
+       }
+
+.box{
+    height: 250px;
+}

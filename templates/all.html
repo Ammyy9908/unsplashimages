@@ -1,0 +1,84 @@
+{%extends 'main.html'%}
+{%block title%}Unsplash{%endblock%}
+{%block nav%}
+ <!-- START NAV -->
+ <nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="../">
+            <strong>Unsplash</strong>
+        </a>
+        <span class="navbar-burger burger" data-target="navbarMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+
+         
+         {%if uname%}
+         <a class="navbar-item is-size-5 has-text-weight-semibold has-text-link" href="/upload">
+          Upload
+        </a>
+         <a class="navbar-item is-size-5 has-text-weight-semibold" href="/profile">
+          {{uname}}
+        </a>
+
+        <a class="navbar-item is-size-5 has-text-weight-semibold has-text-primary" href="/logout">
+          Logout
+        </a>
+        {%else%}
+        <a class="navbar-item is-size-5 has-text-weight-semibold" href="/login">
+          Login
+        </a>
+
+        <a class="navbar-item is-size-5 has-text-weight-semibold has-text-primary" href="/join">
+          Join for free
+        </a>
+        {%endif%}
+          
+        </div>
+      </div>
+      
+    </div>
+  </nav>
+  <!-- END NAV -->
+{%endblock%}
+{%block body%}
+
+<br><br>
+<!--flex gallery-->
+<div class="container">
+    <div class="columns">
+        <div class="column">
+                <h1 class="title is-size-3">All topics</h1>
+        </div>
+    </div>
+</div>
+<br><br>
+<div class="grid">
+   {%for i in data %}
+   <div class="flexbox-item">
+    <div class="box">
+        <figure class="image is-64x64">
+            <img class="is-rounded" src='https://source.unsplash.com/200x200/?{{i["name"]}}'>
+          </figure>
+        <h2 class="title" style="font-weight: 100;">{{i["name"]}}</h2>
+        <a href='/{{i["name"]}}'' class="has-text-danger">View</a>
+    </div>
+    </div>
+   {%endfor%}
+    
+</div>
+
+<!--footer-->
+<footer class="footer is-dark">
+    <div class="content has-text-centered">
+      <p>
+        <strong>Unsplash - HD Free Images</strong> by <a href="https://gonzalojs.com">Sumit Kumar</a>
+      </p>
+    </div>
+  </footer>
+{%endblock%}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <optionnk rel="stylesheet" href="https://cdn.jsdeoptionvr.net/npm/bulma@0.9.0/css/bulma.min.css">
+    <title>View</title>
+</head>
+<body>
+    {%extends 'main.html'%}
+    {%block nav%}
+    <nav class="navbar">
+        <div class="container">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="../">
+                <strong>Unsplash</strong>
+            </a>
+            <span class="navbar-burger burger" data-target="navbarMenu">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </div>
+          <div id="navbarMenu" class="navbar-menu">
+            <div class="navbar-end">
+    
+              <a class="navbar-item is-size-5 has-text-weight-semibold has-text-optionnk" href="/logout">
+                Logout
+              </a>
+             
+              
+            </div>
+          </div>
+          
+        </div>
+      </nav>
+    {%endblock%}
+    {%block body%}
+    <sectio class="hero">
+        <div class="hero-body">
+            <div class="columns">
+                <div class="column">
+                   {%for i in data%}
+                    <img src='{{i.img_url}}' alt="image_not_load" width="400" height="400">
+                 
+                   {%endfor%}
+                    
+                </div>
+
+                <div class="column">
+                    {% for i in data %}
+                    <h1 class="title is-size-5" style="font-weight: 150;">{{i.type}}</h1>
+                    <p class="subtitle is-size-4">Upload by {{i.upload_by}}</p>
+                    <a href='{{i.img_url}}' download class="button is-primary is-rounded">Download</a>
+                    {%endfor%}
+                    
+                </div>
+            </div>
+        </div>
+    </sectio>
+   
+    {%endblock%}
+
+   
+</body>
+</html>
