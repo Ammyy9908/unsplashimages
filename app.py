@@ -143,9 +143,9 @@ def view(pid):
     count=Photo.query.filter_by(id=pid).count()
     if count > 0:
         if not session.get("user") is None:
-            return render_template('viewimage.html',uname=session["user"],data=Photo.query.filter_by(id=pid))
+            return render_template('view.html',uname=session["user"],data=Photo.query.filter_by(id=pid))
         else:
-            return render_template('viewimage.html',uname=False,data=Photo.query.filter_by(id=pid))
+            return render_template('view.html',uname=False,data=Photo.query.filter_by(id=pid))
     else:
         return redirect(url_for('index'))
 
