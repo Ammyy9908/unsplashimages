@@ -25,9 +25,26 @@
           <div id="navbarMenu" class="navbar-menu">
             <div class="navbar-end">
     
-              <a class="navbar-item is-size-5 has-text-weight-semibold has-text-optionnk" href="/logout">
-                Logout
-              </a>
+              {%if uname%}
+              <a class="navbar-item is-size-5 has-text-weight-semibold has-text-link" href="/upload">
+               Upload
+             </a>
+              <a class="navbar-item is-size-5 has-text-weight-semibold" href="/profile">
+               {{uname}}
+             </a>
+       
+             <a class="navbar-item is-size-5 has-text-weight-semibold has-text-primary" href="/logout">
+               Logout
+             </a>
+             {%else%}
+             <a class="navbar-item is-size-5 has-text-weight-semibold" href="/login">
+               Login
+             </a>
+       
+             <a class="navbar-item is-size-5 has-text-weight-semibold has-text-primary" href="/join">
+               Join for free
+             </a>
+             {%endif%}
              
               
             </div>
